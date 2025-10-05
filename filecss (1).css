@@ -1,0 +1,813 @@
+/* Reset e base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #001f3f;
+  font-size: 18px;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Typography */
+h1 { 
+  font-size: clamp(2rem, 5vw, 3rem); 
+  margin-bottom: 20px; 
+  font-weight: bold; 
+}
+
+h2 { 
+  font-size: clamp(1.8rem, 4vw, 2.5rem); 
+  margin-bottom: 20px; 
+  font-weight: bold; 
+}
+
+h3 { 
+  font-size: clamp(1.4rem, 3vw, 1.8rem); 
+  margin-bottom: 20px; 
+  font-weight: bold; 
+}
+
+p { 
+  font-size: 18px; 
+  margin-bottom: 20px; 
+  line-height: 1.7;
+}
+
+a {
+  color: #001f3f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #003366;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 40px;
+  border-bottom: 5px solid #f6d1d1;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 20px rgba(0, 31, 63, 0.3);
+  position: relative;
+}
+
+.logo img {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+.header-text {
+  flex: 1;
+  margin-left: 20px;
+  text-align: center;
+}
+
+.header-text h1 {
+  font-size: 3rem;
+  margin: 0 0 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-text .sottotitolo {
+  font-size: 1.3rem;
+  margin: 5px 0;
+  opacity: 0.9;
+}
+
+/* Immagine professionale nell'header */
+.header-professional {
+  width: 200px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.header-professional:hover {
+  transform: scale(1.05);
+}
+
+/* Menu */
+.menu {
+  background: #f6d1d1;
+  padding: 15px 0;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.menu ul li {
+  margin: 0 15px;
+  position: relative;
+}
+
+.menu ul li a {
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 12px 18px;
+  border-radius: 8px;
+  display: block;
+}
+
+.menu ul li a:hover {
+  color: #fff;
+  background-color: #001f3f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 31, 63, 0.3);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f6d1d1;
+  border: 2px solid #e0c0c0;
+  border-radius: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  min-width: 220px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.menu ul li:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu li {
+  display: block;
+  margin: 0;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 12px 20px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin: 2px 8px;
+}
+
+.dropdown-menu li a:hover {
+  background: #001f3f;
+  color: #fff;
+  transform: translateX(5px);
+}
+
+.freccetta {
+  font-size: 0.8rem;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover .freccetta {
+  transform: rotate(180deg);
+}
+
+/* Sezioni */
+section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  border: 2px solid #f6d1d1;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: none;
+  background: #ffffff;
+}
+
+section.active {
+  display: block;
+  animation: fadeInUp 0.6s ease;
+}
+
+section.always-visible {
+  display: block !important;
+  animation: fadeInUp 0.6s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Servizi e Riquadri */
+.servizi, .riquadri {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  text-align: left;
+}
+
+.servizi {
+  text-align: center;
+}
+
+.servizio, .riquadro {
+  padding: 35px;
+  background: #ffffff;
+  border: 2px solid #f6d1d1;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  /* Inizialmente nascosti per l'animazione */
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* Animazione quando diventano visibili */
+.servizio.animate, .riquadro.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.servizio::before, .riquadro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #001f3f, #f6d1d1);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.servizio:hover::before, .riquadro:hover::before {
+  transform: scaleX(1);
+}
+
+.servizio:hover, .riquadro:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  border-color: #001f3f;
+}
+
+/* Sezione Chi Sono con immagine */
+.chi-sono-content {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 40px;
+  align-items: start;
+}
+
+.chi-sono-text {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.chi-sono-image {
+  position: sticky;
+  top: 100px;
+}
+
+.chi-sono-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.chi-sono-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Annunci di lavoro */
+.annuncio-lavoro {
+  padding: 35px;
+  background: #ffffff;
+  border: 2px solid #f6d1d1;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
+  position: relative;
+  /* Inizialmente nascosti per l'animazione */
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* Animazione quando diventano visibili */
+.annuncio-lavoro.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.annuncio-lavoro:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.annuncio-lavoro h3 {
+  color: #001f3f;
+  border-bottom: 3px solid #f6d1d1;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.sede {
+  font-weight: bold;
+  color: #001f3f;
+  margin-top: 20px;
+  padding: 10px;
+  background: rgba(246, 209, 209, 0.3);
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Pulsanti */
+.btn-candidati, .btn-submit {
+  background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-candidati::before, .btn-submit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-candidati:hover::before, .btn-submit:hover::before {
+  left: 100%;
+}
+
+.btn-candidati:hover, .btn-submit:hover {
+  background: linear-gradient(135deg, #003366 0%, #004080 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 31, 63, 0.3);
+}
+
+/* Form */
+.form-candidatura-offerta {
+  display: none;
+  margin-top: 25px;
+  padding: 25px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  animation: slideDown 0.3s ease;
+}
+
+.form-candidatura-offerta.show {
+  display: block;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+  }
+}
+
+.form-candidatura {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #001f3f;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #f6d1d1;
+  border-radius: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+  border-color: #001f3f;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 31, 63, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Form row per nome e cognome */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Sezione consulenza */
+.sezione-consulenza {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+  text-align: center;
+  border-radius: 20px;
+}
+
+.calendly-wrapper iframe {
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.calendly-wrapper iframe:hover {
+  transform: scale(1.02);
+}
+
+/* Contatti inline */
+.contatti-inline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+.contatti-inline p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: rgba(246, 209, 209, 0.3);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.contatti-inline p:hover {
+  background: rgba(246, 209, 209, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Success message */
+.success-message {
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  border: 1px solid #c3e6cb;
+  color: #155724;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+  display: none;
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 14px;
+  margin-top: 60px;
+}
+
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 5px;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #f6d1d1;
+}
+
+.footer-links {
+  margin-top: 20px;
+}
+
+.footer-links a {
+  margin: 0 15px;
+  text-decoration: underline;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  background: rgba(246, 209, 209, 0.2);
+  text-decoration: none;
+}
+
+/* Privacy Policy */
+.privacy-policy {
+  background: #f8f9fa;
+  padding: 40px 20px;
+  margin: 40px auto;
+  max-width: 800px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  line-height: 1.8;
+}
+
+.privacy-policy h2 {
+  color: #001f3f;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.privacy-policy h3 {
+  color: #001f3f;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.privacy-policy p {
+  margin-bottom: 15px;
+}
+
+.privacy-policy ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* MOBILE VERSION - Solo header blu, menu e contatti */
+  
+  /* Header mobile - mantieni solo la parte blu */
+  .header {
+    padding: 20px;
+    text-align: center;
+    flex-direction: column;
+  }
+  
+  .logo {
+    display: none; /* Nascondi logo su mobile */
+  }
+  
+  .header-image {
+    display: none; /* Nascondi immagine professionale su mobile */
+  }
+  
+  .header-text {
+    margin: 0;
+  }
+  
+  .header-text h1 {
+    font-size: 2rem;
+  }
+  
+  .header-text .sottotitolo {
+    font-size: 1rem;
+  }
+  
+  /* Menu mobile */
+  .menu {
+    position: static;
+    padding: 10px 0;
+  }
+  
+  .menu ul {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 0 10px;
+  }
+  
+  .menu ul li {
+    margin: 2px 0;
+    flex: 1;
+    min-width: 120px;
+  }
+  
+  .menu ul li a {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Dropdown su mobile */
+  .dropdown-menu {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    transform: none;
+    min-width: auto;
+    max-width: none;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  /* NASCONDI TUTTE LE SEZIONI TRANNE CONTATTI SU MOBILE */
+  section:not(#contatti) {
+    display: none !important;
+  }
+  
+  /* Mantieni solo sezione contatti visibile */
+  #contatti {
+    display: block !important;
+    margin: 20px 10px;
+    padding: 30px 15px;
+    border-radius: 15px;
+  }
+  
+  .contatti-inline {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Footer mobile */
+  footer {
+    margin-top: 40px;
+    padding: 30px 15px;
+  }
+  
+  .footer-links a {
+    margin: 5px 10px;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu ul li a {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+  
+  .menu ul li {
+    min-width: 100px;
+  }
+  
+  .header-text h1 {
+    font-size: 1.8rem;
+  }
+  
+  .header-text .sottotitolo {
+    font-size: 0.9rem;
+  }
+}
+
+/* Desktop - Mostra tutto normalmente */
+@media (min-width: 769px) {
+  section {
+    margin: 40px auto;
+    padding: 60px 20px;
+  }
+  
+  .servizi, .riquadri {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+  
+  .chi-sono-content {
+    grid-template-columns: 1fr 300px;
+    gap: 40px;
+  }
+  
+  .chi-sono-image {
+    position: sticky;
+    top: 100px;
+  }
+  
+  .chi-sono-image img {
+    max-width: 300px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .servizio, .riquadro, .annuncio-lavoro {
+    padding: 35px;
+  }
+}
+
+/* Loading animation */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Accessibilità */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus styles per accessibilità */
+*:focus {
+  outline: 2px solid #001f3f;
+  outline-offset: 2px;
+}
+
+button:focus, input:focus, textarea:focus, select:focus {
+  outline: 2px solid #001f3f;
+  outline-offset: 2px;
+}
